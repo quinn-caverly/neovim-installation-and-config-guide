@@ -72,4 +72,11 @@ In order to verify this step, run vim again and there should be a UI which appea
 
 <h2> Step #4: Install Plugins </h2>
 
+UNFINISHED
+
+<h2> Step #5: Configure Plugins with the Lua Scripting Language </h2>
+
+UNFINISHED
+
+
 
