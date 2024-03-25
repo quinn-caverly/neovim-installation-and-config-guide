@@ -68,4 +68,8 @@ vim.g.mapleader = " "
 require("lazy").setup()
 ```
 
+In order to verify this step, run vim again and there should be a UI which appears indicating that the Lazy plugin manager is being installed. If there has been no change, there are more detailed instructions on the github page: https://github.com/folke/lazy.nvim. 
+
+<h2> Step #4: Install Plugins </h2>
+
 
