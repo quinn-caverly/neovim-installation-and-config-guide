@@ -26,7 +26,11 @@ Neovim can also be installed via the system package manager. For example, on Ubu
 
 After following the standard download process for your operating system, the Neovim installation can be verified via the command line by simply running the command: <code> neovim </code> Many users add an alias in their shell configuration or modify the system path so that the editor can be opened by simply typing: <code> vim </code>. Neither of these will be covered here.
 
-The output should be something similar to the screen on the left. This is Neovim’s default splash page which can be changed later. In order to exit Neovim, type <code> :q </code>. If the system says that the command was not found, try installing via another method. For example, if you previously tried installing using a download link, instead try using a package manager or vice versa. In order to learn the basics of Neovim, use <code>:help nvim</code>. Basic usage will not be covered in this tutorial.
+<img src="images/neovim-default-splashpage.png" width="50%" height="50%">
+
+The output should be something similar to the screen shown above. This is Neovim’s default splash page which can be changed later. In order to exit Neovim, type <code> :q </code>. If the system says that the command was not found, try installing via another method. For example, if you previously tried installing using a download link, instead try using a package manager or vice versa.
+
+In order to learn the basics of Neovim, use <code>:help nvim</code>. Basic usage will not be covered in this tutorial.
 
 
 <h2> Step #2: Install Git </h2>
@@ -44,5 +48,24 @@ Windows: Click [this link](https://git-scm.com/download/win "Windows installer f
 In order to properly configure Neovim, it is recommended to install a plugin manager. There are several available options but the current most popular and modern plugin manager is found at this link: https://github.com/folke/lazy.nvim. 
 
 To begin, first navigate to the default configuration file location for your operating system. On Linux, this will be located at ~/.config/nvim. Next, create a file called init.lua and add the following text:
+
+```lua
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath) 
+
+vim.g.mapleader = " "
+
+require("lazy").setup()
+```
 
 
