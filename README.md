@@ -72,7 +72,34 @@ In order to verify this step, run vim again and there should be a UI which appea
 
 <h2> Step #4: Install Plugins </h2>
 
-UNFINISHED
+First, find some plugins which you would like to install. One of the best methods for finding plugins is the following list: [Awesome Neovim Plugins](https://github.com/rockerBOO/awesome-neovim)
+
+Once, you have found the plugin, the process for installing it is simple. For example, if you wanted to install the following plugin: https://github.com/EdenEast/nightfox.nvim which modifies the color scheme of the editor, you would place the text following *github.com* within the call to setup the lazy plugin manager like so:
+
+```lua
+require("lazy").setup({
+  "EdenEast/nightfox.nvim"
+})
+```
+
+The plugin will be installed by Lazy automatically after you restart Neovim. The before and after pictures are shown below.
+
+<p align="center">
+  <img src="images/neovim-before-nord.png" width="500" />
+  <img src="images/neovim-with-nord.png" width="500" /> 
+</p>
+
+As you can see, the text is now much more readable. 
+
+In order to install more plugins, simply add them in list format to the setup function like so:
+
+```lua
+require("lazy").setup({
+  "EdenEast/nightfox.nvim", "nvim-treesitter/nvim-treesitter", "windwp/nvim-autopairs", "folke/trouble.nvim",
+})
+```
+
+However, plugins often have dependencies and requirements so installing a plugin may not be as simple as the process shown above. If the process is different, it should be explained on the Github page of that particular plugin.
 
 <h2> Step #5: Configure Plugins with the Lua Scripting Language </h2>
 
