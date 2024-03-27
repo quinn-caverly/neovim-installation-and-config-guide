@@ -85,8 +85,14 @@ require("lazy").setup({
 The plugin will be installed by Lazy automatically after you restart Neovim. The before and after pictures are shown below.
 
 <p align="center">
-  <img src="images/neovim-before-nord.png" width="500" style="border-radius:10px" />
-  <img src="images/neovim-with-nord.png" width="500" style="border-radius:10px" /> 
+  <figure>
+    <img src="images/neovim-before-nord.png" alt="Neovim Before the Color Scheme" style="display: inline-block; border-radius: 10px; width: 450px;" />
+    <figcaption>Neovim Before the Color Scheme</figcaption>
+  </figure>
+  <figure>
+    <img src="images/neovim-with-nord.png" alt="Neovim With the Color Scheme" style="display: inline-block; border-radius: 10px; width: 450px;" />
+    <figcaption>Neovim With the Color Scheme</figcaption>
+  </figure>
 </p>
 
 As you can see, the text is now much more readable. 
@@ -99,7 +105,7 @@ require("lazy").setup({
 })
 ```
 
-However, plugins often have dependencies and requirements so installing a plugin may not be as simple as the process shown above. If the process is different, it should be explained on the Github page of that particular plugin.
+> Plugins often have dependencies and requirements so installing a plugin may not be as simple as the process shown above. If the process is different, it should be explained on the Github page of that particular plugin.
 
 <h2> Step #5: Configure Plugins with the Lua Scripting Language </h2>
 
