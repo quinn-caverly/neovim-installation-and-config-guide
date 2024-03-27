@@ -85,8 +85,8 @@ require("lazy").setup({
 The plugin will be installed by Lazy automatically after you restart Neovim. The before and after pictures are shown below.
 
 <p align="center">
-  <img src="images/neovim-before-nord.png" width="500" />
-  <img src="images/neovim-with-nord.png" width="500" /> 
+  <img src="images/neovim-before-nord.png" width="500" style="border-radius:10px" />
+  <img src="images/neovim-with-nord.png" width="500" style="border-radius:10px" /> 
 </p>
 
 As you can see, the text is now much more readable. 
