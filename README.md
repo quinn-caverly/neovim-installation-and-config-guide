@@ -28,10 +28,9 @@ After following the standard download process for your operating system, the Neo
 
 <img src="images/neovim-default-splashpage.png" width="50%" height="50%">
 
-The output should be something similar to the screen shown above. This is Neovim’s default splash page which can be changed later. In order to exit Neovim, type <code> :q </code>. If the system says that the command was not found, try installing via another method. For example, if you previously tried installing using a download link, instead try using a package manager or vice versa.
+The output should be something similar to the screen shown above. This is Neovim’s default splash page which can be changed later.
 
-In order to learn the basics of Neovim, use <code>:help nvim</code>. Basic usage will not be covered in this tutorial.
-
+If the system says that the command was not found, try installing via another method. For example, if you previously tried installing using a download link, instead try using a package manager or vice versa.
 
 <h2> Step #2: Install Git </h2>
 
@@ -109,7 +108,50 @@ require("lazy").setup({
 
 <h2> Step #5: Configure Plugins with the Lua Scripting Language </h2>
 
-UNFINISHED
+One of the main strengths of Neovim as compared to the original Vim is the usage of the Lua scripting language, which makes the process of configuring Neovim and Neovim plugins straightforward and consistent. Instead of forcing each individual plugin maker to specify unique ways to configure their plugins, all plugins are configured in essentially the same manner using Lua. 
 
+For illustration, the setup for [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) will be demonstrated. This custom startup screen displays recent files, recent projects, and more.
 
+The first step in configuring a plugin is visiting the plugin's github page in order to see what configuration options are available. From [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page, we can see that the suggested configuration method for this plugin is to modify the setup function of the lazy plugin manager. The plugin's page includes the following code:
+
+```lua
+{  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup {
+      -- config
+    }
+  end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+}
+```
+
+This indicates that instead of simply adding <code>'nvimdev/dashboard-nvim'</code> to the lazy plugin setup function, we will add the whole content including the brackets. Building off of the configuration above, this would look like the following.
+
+```lua
+require("lazy").setup({
+  "EdenEast/nightfox.nvim", "nvim-treesitter/nvim-treesitter", "windwp/nvim-autopairs", "folke/trouble.nvim",
+  {  'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        -- config
+      }
+    end,
+    dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  }
+})
+```
+
+Now, in order to actually configure this plugin, modify the line: <code> -- config </code> to include the actual configuration. There are many options shown on [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page but to keep it simple we will just set the theme. The available themes are <code>doom</code> and <code>hyper</code>. I will use hyper, replacing <code> -- config </code> with <code>theme = 'hyper'</code> like so:
+
+```lua
+      require('dashboard').setup {
+        theme = 'hyper'
+      }
+```
+
+Finally, restart Neovim and the lazy plugin manager will automatically install the plugin. The result is that now when Neovim is opened the default splashpage (which is shown above) has been replaced with the following screen, a large improvement. 
+
+<img src="images/neovim-new-splashpage.png" width="50%" height="50%">
 
