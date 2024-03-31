@@ -143,7 +143,7 @@ require("lazy").setup({
 })
 ```
 
-Now, in order to actually configure this plugin, modify the line: <code> -- config </code> to include the actual configuration. There are many options shown on [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page but to keep it simple we will just set the theme. The available themes are <code>doom</code> and <code>hyper</code>. I will use hyper, replacing <code> -- config </code> with <code>theme = 'hyper'</code> like so:
+Now, in order to actually configure this plugin, modify the line: <code> -- config </code> to include the actual configuration. There are many options shown on [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page but to keep it simple we will just set the theme. The available themes are doom and hyper. I will use hyper, replacing <code> -- config </code> with <code>theme = 'hyper'</code> like so:
 
 ```lua
       require('dashboard').setup {
