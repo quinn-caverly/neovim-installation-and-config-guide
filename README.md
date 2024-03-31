@@ -18,7 +18,10 @@ This guide is for coders who have some experience writing code in some Integrate
 
 [This link](https://github.com/neovim/neovim/blob/master/INSTALL.md "Downloads for Neovim") contains downloads for Linux, Mac, and Windows. Install the latest stable release rather than the development build. The relevant links on the site are shown below.
 
-![Neovim installation options](images/neovim-installs.png)
+<div align="center">
+  <img src="images/neovim-installs.png" width="50%" height="50%">
+  <p><i>Neovim installation options</i></p>
+</div>
 
 Neovim can also be installed via the system package manager. For example, on Ubuntu run:
 
@@ -26,7 +29,10 @@ Neovim can also be installed via the system package manager. For example, on Ubu
 
 After following the standard download process for your operating system, the Neovim installation can be verified via the command line by simply running the command: <code> neovim </code> Many users add an alias in their shell configuration or modify the system path so that the editor can be opened by simply typing: <code> vim </code>. Neither of these will be covered here.
 
-<img src="images/neovim-default-splashpage.png" width="50%" height="50%">
+<div align="center">
+  <img src="images/neovim-default-splashpage.png" width="50%" height="50%">
+  <p><i>The expected Neovim start screen</i></p>
+</div>
 
 The output should be something similar to the screen shown above. This is Neovim’s default splash page which can be changed later.
 
@@ -73,7 +79,7 @@ In order to verify this step, run vim again and there should be a UI which appea
 
 First, find some plugins which you would like to install. One of the best methods for finding plugins is the following list: [Awesome Neovim Plugins](https://github.com/rockerBOO/awesome-neovim)
 
-Once, you have found the plugin, the process for installing it is simple. For example, if you wanted to install the following plugin: https://github.com/EdenEast/nightfox.nvim which modifies the color scheme of the editor, you would place the text following *github.com* within the call to setup the lazy plugin manager like so:
+Once, you have found the plugin, the process for installing it is simple. For example, if you wanted to install the following plugin: https://github.com/EdenEast/nightfox.nvim which modifies the colorsscheme of the editor, you would place the text following *github.com* within the call to setup the lazy plugin manager like so:
 
 ```lua
 require("lazy").setup({
@@ -83,18 +89,17 @@ require("lazy").setup({
 
 The plugin will be installed by Lazy automatically after you restart Neovim. The before and after pictures are shown below.
 
-<p align="center">
-  <figure>
-    <img src="images/neovim-before-nord.png" alt="Neovim Before the Color Scheme" style="display: inline-block; border-radius: 10px; width: 450px;" />
-    <figcaption>Neovim Before the Color Scheme</figcaption>
-  </figure>
-  <figure>
-    <img src="images/neovim-with-nord.png" alt="Neovim With the Color Scheme" style="display: inline-block; border-radius: 10px; width: 450px;" />
-    <figcaption>Neovim With the Color Scheme</figcaption>
-  </figure>
-</p>
+<div align="center">
+  <img src="images/neovim-before-nord.png" width="50%" height="50%">
+  <p><i>Neovim before applying the Nord colorscheme</i></p>
+</div>
 
-As you can see, the text is now much more readable. 
+<div align="center">
+  <img src="images/neovim-with-nord.png" width="50%" height="50%">
+  <p><i>Neovim after applying the Nord colorscheme</i></p>
+</div>
+
+As you can see, the text is now much more readable and pleasant to look at. 
 
 In order to install more plugins, simply add them in list format to the setup function like so:
 
@@ -153,5 +158,7 @@ Now, in order to actually configure this plugin, modify the line: <code> -- conf
 
 Finally, restart Neovim and the lazy plugin manager will automatically install the plugin. The result is that now when Neovim is opened the default splashpage (which is shown above) has been replaced with the following screen, a large improvement. 
 
-<img src="images/neovim-new-splashpage.png" width="50%" height="50%">
-
+<div align="center">
+  <img src="images/neovim-new-splashpage.png" width="50%" height="50%">
+  <p><i>The new Neovim splashpage after installing dashboard-nvim</i></p>
+</div>
