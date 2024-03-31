@@ -162,3 +162,8 @@ Finally, restart Neovim and the lazy plugin manager will automatically install t
   <img src="images/neovim-new-splashpage.png" width="50%" height="50%">
   <p><i>The new Neovim splashpage after installing dashboard-nvim</i></p>
 </div>
+
+<h3> Troubleshooting Tips </h3>
+
+If Neovim or a plugin is displaying an unexpected bug, installing the development version of Neovim may solve the problem. Plugin developers often build plugins based off of the most recent development version rather than the stable release. Further, the last stable version which is included in system package managers may not be the most recent stable version. For these reasons, installing the development version from the link in step 1 may solve unexpected problems.
+
