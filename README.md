@@ -8,13 +8,19 @@ This guide is for coders who have some experience writing code in some Integrate
 
 <h3> Steps: </h3>
 
-1. Install Neovim according to the specifications of the Operating System.
-2. Install Git.
-3. Install a plugin manager via Github.
-4. Install plugins via Github.
-5. Configure plugins with the Lua scripting language.
 
-<h2> Step #1: Install Neovim </h2>
+<a href="#step1" style="padding-left: 20px;">1. Install Neovim according to the specifications of the Operating System.</a>
+<br>
+<a href="#step2" style="padding-left: 20px;">2. Install Git.</a>
+<br>
+<a href="#step3" style="padding-left: 20px;">3. Install a plugin manager via Github.</a>
+<br>
+<a href="#step4" style="padding-left: 20px;">4. Install plugins via Github.</a>
+<br>
+<a href="#step5" style="padding-left: 20px;">5. Configure plugins with the Lua scripting language.</a>
+
+
+<h2 id="step1"> Step #1: Install Neovim </h2>
 
 [This link](https://github.com/neovim/neovim/blob/master/INSTALL.md "Downloads for Neovim") contains downloads for Linux, Mac, and Windows. Install the latest stable release rather than the development build. The relevant links on the site are shown below.
 
@@ -38,7 +44,7 @@ The output should be something similar to the screen shown above. This is Neovim
 
 If the system says that the command was not found, try installing via another method. For example, if you previously tried installing using a download link, instead try using a package manager or vice versa.
 
-<h2> Step #2: Install Git </h2>
+<h2 id="step2"> Step #2: Install Git </h2>
 
 Git is a tool which is necessary for both the installation and operation of the plugin manager.
 
@@ -48,7 +54,7 @@ Mac: run <code> git </code> from the terminal and an installation window will au
 
 Windows: Click [this link](https://git-scm.com/download/win "Windows installer for Git") to download the installer for Git.
 
-<h2> Step #3: Install A Plugin Manager </h2>
+<h2 id="step3"> Step #3: Install A Plugin Manager </h2>
 
 In order to properly configure Neovim, it is recommended to install a plugin manager. There are several available options but the current most popular and modern plugin manager is found at this link: https://github.com/folke/lazy.nvim. 
 
@@ -75,7 +81,7 @@ require("lazy").setup()
 
 In order to verify this step, run vim again and there should be a UI which appears indicating that the Lazy plugin manager is being installed. If there has been no change, there are more detailed instructions on the github page: https://github.com/folke/lazy.nvim. 
 
-<h2> Step #4: Install Plugins </h2>
+<h2 id="step4"> Step #4: Install Plugins </h2>
 
 First, find some plugins which you would like to install. One of the best methods for finding plugins is the following list: [Awesome Neovim Plugins](https://github.com/rockerBOO/awesome-neovim)
 
@@ -111,7 +117,7 @@ require("lazy").setup({
 
 > Plugins often have dependencies and requirements so installing a plugin may not be as simple as the process shown above. If the process is different, it should be explained on the Github page of that particular plugin.
 
-<h2> Step #5: Configure Plugins with the Lua Scripting Language </h2>
+<h2 id="step5"> Step #5: Configure Plugins with the Lua Scripting Language </h2>
 
 One of the main strengths of Neovim as compared to the original Vim is the usage of the Lua scripting language, which makes the process of configuring Neovim and Neovim plugins straightforward and consistent. Instead of forcing each individual plugin maker to specify unique ways to configure their plugins, all plugins are configured in essentially the same manner using Lua. 
 
