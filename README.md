@@ -8,7 +8,6 @@ This guide is for coders who have some experience writing code in some Integrate
 
 <h3> Steps: </h3>
 
-
 <a href="#step1" style="padding-left: 20px;">1. Install Neovim according to the specifications of the Operating System.</a>
 <br>
 <a href="#step2" style="padding-left: 20px;">2. Install Git.</a>
@@ -18,7 +17,6 @@ This guide is for coders who have some experience writing code in some Integrate
 <a href="#step4" style="padding-left: 20px;">4. Install plugins via Github.</a>
 <br>
 <a href="#step5" style="padding-left: 20px;">5. Configure plugins with the Lua scripting language.</a>
-
 
 <h2 id="step1"> Step #1: Install Neovim </h2>
 
@@ -58,7 +56,15 @@ Windows: Click [this link](https://git-scm.com/download/win "Windows installer f
 
 In order to properly configure Neovim, it is recommended to install a plugin manager. There are several available options but the current most popular and modern plugin manager is found at this link: https://github.com/folke/lazy.nvim. 
 
-To begin, first navigate to the default configuration file location for your operating system. On Linux, this will be located at ~/.config/nvim. Next, create a file called init.lua and add the following text:
+To begin, first navigate to the default Neovim configuration file location for your operating system shown below.
+
+Linux: <code>~/.config/nvim</code>
+
+Windows: <code>~/Appdata/Local/nvim</code>
+
+Mac: <code>~/.config/nvim</code>
+
+Next, create a file named init.lua and add the following text:
 
 ```lua
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -79,13 +85,21 @@ vim.g.mapleader = " "
 require("lazy").setup()
 ```
 
-In order to verify this step, run vim again and there should be a UI which appears indicating that the Lazy plugin manager is being installed. If there has been no change, there are more detailed instructions on the github page: https://github.com/folke/lazy.nvim. 
+In order to verify this step, start Neovim again using <code>neovim</code> and there should be a UI which appears indicating that the Lazy plugin manager is being installed. Further, within Neovim, after running <code>:Lazy</code> the following UI for managing plugins should appear.
+
+<div align="center">
+  <img src="images/neovim-with-lazy.png" width="70%" height="70%">
+  <p><i>The Lazy plugin manager's UI</i></p>
+</div>
+
+
+If there has been no change, there are more detailed instructions and troubleshooting tips on Lazy's github page: https://github.com/folke/lazy.nvim. 
 
 <h2 id="step4"> Step #4: Install Plugins </h2>
 
-First, find some plugins which you would like to install. One of the best methods for finding plugins is the following list: [Awesome Neovim Plugins](https://github.com/rockerBOO/awesome-neovim)
+First, find some plugins which you would like to install. One of the best methods for finding plugins is the following list: [Awesome Neovim Plugins](https://github.com/rockerBOO/awesome-neovim). Other good sources for Neovim plugins are Google, Reddit, and Youtube. On any of these platforms search: "Neovim plugins". 
 
-Once, you have found the plugin, the process for installing it is simple. For example, if you wanted to install the following plugin: https://github.com/EdenEast/nightfox.nvim which modifies the colorsscheme of the editor, you would place the text following *github.com* within the call to setup the lazy plugin manager like so:
+Once, you have found a plugin, the process for installing it is simple. For example, if you wanted to install the following plugin: https://github.com/EdenEast/nightfox.nvim which modifies the colorsscheme of the editor, you would place the text following *github.com/* within the call to setup the Lazy plugin manager like so:
 
 ```lua
 require("lazy").setup({
@@ -115,7 +129,7 @@ require("lazy").setup({
 })
 ```
 
-> Plugins often have dependencies and requirements so installing a plugin may not be as simple as the process shown above. If the process is different, it should be explained on the Github page of that particular plugin.
+However, plugins often have dependencies and various requirements so installing a plugin may not be as simple as the process shown above. If the process is different, it should be explained on the Github page of that particular plugin.
 
 <h2 id="step5"> Step #5: Configure Plugins with the Lua Scripting Language </h2>
 
@@ -123,7 +137,7 @@ One of the main strengths of Neovim as compared to the original Vim is the usage
 
 For illustration, the setup for [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) will be demonstrated. This custom startup screen displays recent files, recent projects, and more.
 
-The first step in configuring a plugin is visiting the plugin's github page in order to see what configuration options are available. From [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page, we can see that the suggested configuration method for this plugin is to modify the setup function of the lazy plugin manager. The plugin's page includes the following code:
+The first step in configuring a plugin is visiting the plugin's github page in order to see what configuration options are available. From [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page, we can see that the suggested configuration method for this plugin is to modify the setup function of the lazy plugin manager. The plugin's page includes the following sample code:
 
 ```lua
 {  'nvimdev/dashboard-nvim',
@@ -137,7 +151,7 @@ The first step in configuring a plugin is visiting the plugin's github page in o
 }
 ```
 
-This indicates that instead of simply adding <code>'nvimdev/dashboard-nvim'</code> to the lazy plugin setup function, we will add the whole content including the brackets. Building off of the configuration above, this would look like the following.
+This indicates that instead of simply adding <code>'nvimdev/dashboard-nvim'</code> to the lazy plugin setup function, we will add the whole content including the brackets. Building off of the configuration above, this would look like the following:
 
 ```lua
 require("lazy").setup({
@@ -157,9 +171,9 @@ require("lazy").setup({
 Now, in order to actually configure this plugin, modify the line: <code> -- config </code> to include the actual configuration. There are many options shown on [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)'s github page but to keep it simple we will just set the theme. The available themes are doom and hyper. I will use hyper, replacing <code> -- config </code> with <code>theme = 'hyper'</code> like so:
 
 ```lua
-      require('dashboard').setup {
-        theme = 'hyper'
-      }
+require('dashboard').setup {
+  theme = 'hyper'
+}
 ```
 
 Finally, restart Neovim and the lazy plugin manager will automatically install the plugin. The result is that now when Neovim is opened the default splashpage (which is shown above) has been replaced with the following screen, a large improvement. 
@@ -171,5 +185,5 @@ Finally, restart Neovim and the lazy plugin manager will automatically install t
 
 <h3> Troubleshooting Tips </h3>
 
-If Neovim or a plugin is displaying an unexpected bug, installing the development version of Neovim may solve the problem. Plugin developers often build plugins based off of the most recent development version rather than the stable release. Further, the last stable version which is included in system package managers may not be the most recent stable version. For these reasons, installing the development version from the link in step 1 may solve unexpected problems.
+If Neovim or a plugin is displaying an unexpected bug, installing the development version of Neovim may solve the problem. Plugin developers often build plugins based off of the most recent development version rather than the stable release. Further, the last stable version which is included in system package managers may not be the most recent stable version. For these reasons, installing the development version from the link in <a href="#step1">step 1</a> may solve unexpected problems.
 
